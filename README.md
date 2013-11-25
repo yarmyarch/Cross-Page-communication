@@ -12,19 +12,19 @@ A subpage can always register itself as a mainpage by calling a function, that t
 All formal browsers that approves LocalStorage. However, there might be some problems in elder version of IE such as IE9, which can't dispatch the onstorage event correctly.
 
 ### Usage:
-```cpp
+```java
 /**
  * Active current page and try to register itself as the mainpage.
  * @param onActive {Function} 
- *  callback while initialization finished.
+ *    callback while initialization finished.
  * @param onRelease {Function} 
- *  callback while set as a subpage by other mainpage requests.
+ *    callback while set as a subpage by other mainpage requests.
  */
 MultiPageUtil.init(onActive, onRelease);
 
 /**
  * Grouped function list that's designed to replace the original 
- *  LocalStorage.add/set/remove/clear under specialized rules to prevent name-space issues.
+ *    LocalStorage.add/set/remove/clear under specialized rules to prevent name-space issues.
  */
 MultiPageUtil.util.add;
 MultiPageUtil.util.set;
@@ -46,11 +46,11 @@ MultiPageUtil.controller.active(callback);
  * As a subpage, send request to the main page. All requests are based on string. 
  * If you would like other data structure, build it yourself with string.
  * @param key {String} 
- * request identifier
+ *    request identifier
  * @param requestValue {String} 
- *  request body, or params that are supposed by request handlers.
+ *    request body, or params that are supposed by request handlers.
  * @param callback {Function(responseText)} 
- *  The mainpage would tell the current subpage if it received the request with a response in String.
+ *    The mainpage would tell the current subpage if it received the request with a response in String.
  */
 MultiPageUtil.controller.postMainPage(key, requestText, callback);
 
@@ -58,24 +58,24 @@ MultiPageUtil.controller.postMainPage(key, requestText, callback);
  * As a mainPage, send requests to all subpages.
  * If you would like other data structure, build it yourself with string.
  * @param key {String} 
- * request identifier
+ *    request identifier
  * @param requestValue {String} 
- *  request body, or params that are supposed by request handlers.
+ *    request body, or params that are supposed by request handlers.
  * @param callback {Function(responseText)} 
- *  All subpages would report it's response status. It could be executed multi-times, 
- *  based on the number of actived subpages.
+ *    All subpages would report it's response status. It could be executed multi-times, 
+ *    based on the number of actived subpages.
  */
 MultiPageUtil.controller.postSubPages(key, requestText, callback);
 
 /**
  * Add a handler for the specific identifier.
  * The handler would only be actived in case of:
- *  1. As a mainpage, received a request from other subpages;
- *  2. As a subpage, received a request from the actived mainpage.
+ *    1. As a mainpage, received a request from other subpages;
+ *    2. As a subpage, received a request from the actived mainpage.
  * @param key {String} 
- * request identifier
+ *    request identifier
  * @param handler {Function(requestText)} 
- *  handler for the specific request identifier.
+ *    handler for the specific request identifier.
  */
 MultiPageUtil.controller.addPostListener(key, handler);
 ```
