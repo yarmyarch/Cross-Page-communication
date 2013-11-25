@@ -12,7 +12,7 @@ A subpage can always register itself as a mainpage by calling a function, that t
 All formal browsers that approves LocalStorage. However, there might be some problems in elder version of IE such as IE9, which can't dispatch the onstorage event correctly.
 
 ### Usage:
-```js
+```cpp
 /**
  * Active current page and try to register itself as the mainpage.
  * @param onActive {Function} 
